@@ -1,0 +1,11 @@
+{
+  "name": "mypages",
+  "version": "1.0.0",
+  "description": "科技感学术风格个人主页",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000"
+  },
+  "author": "wqy-lab",
+  "license": "MIT"
+}
