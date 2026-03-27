@@ -313,7 +313,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 4rem 3rem;
-  background: rgba(10, 10, 16, 0.85);
+  background: rgba(10, 10, 16, 0.4);
   backdrop-filter: blur(20px);
   min-height: 100vh;
 }
