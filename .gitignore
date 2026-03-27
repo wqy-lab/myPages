@@ -8,5 +8,12 @@ Thumbs.db
 *.swp
 *.swo
 
+# Dependencies
+node_modules/
+pnpm-lock.yaml
+
+# Build output
+dist/
+
 # Misc
 *.log
