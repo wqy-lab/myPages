@@ -4,7 +4,7 @@
   "description": "科技感学术风格个人主页",
   "scripts": {
     "start": "python -m http.server 8000",
-    "dev": "python -m http.server 8000"
+    "build": "node scripts/build.js"
   },
   "author": "wqy-lab",
   "license": "MIT"
