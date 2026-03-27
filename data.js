@@ -24,12 +24,29 @@ const DATA = {
 
   courses: {
     now: {
-      cs: [],
-      phys: ["实验物理中的统计方法", "数学物理方法（下）", "热学", "理论力学", "理论物理基础II"]
+      cs: [
+        { name: "程序设计实习", instructor: "杨帅", semester: "25-26 第2学期", grade: "", description: "" }
+      ],
+      phys: [
+        { name: "实验物理中的统计方法", instructor: "杨振伟", semester: "25-26 第2学期", grade: "", description: "" },
+        { name: "数学物理方法（下）", instructor: "高春媛", semester: "25-26 第2学期", grade: "", description: "" },
+        { name: "热学", instructor: "刘玉鑫", semester: "25-26 第2学期", grade: "", description: "" },
+        { name: "理论力学", instructor: "邵立晶", semester: "25-26 第2学期", grade: "", description: "" },
+        { name: "理论物理基础II", instructor: "王垡", semester: "25-26 第2学期", grade: "", description: "" }
+      ]
     },
     history: {
-      cs: ["计算概论A"],
-      phys: ["数学物理方法（上）", "理论物理基础I", "近代物理", "光学"]
+      cs: [
+        { name: "计算概论A", instructor: "王厚峰", semester: "25-26 第1学期", grade: "", description: "" }
+      ],
+      phys: [
+        { name: "数学物理方法（上）", instructor: "高春媛", semester: "25-26 第1学期", grade: "", description: "" },
+        { name: "理论物理基础I", instructor: "孟策", semester: "25-26 第1学期", grade: "", description: "" },
+        { name: "普通物理实验（1）", instructor: "普通物理实验教学组", semester: "25-26 第1学期", grade: "", description: "" },
+        { name: "普通物理实验（2）", instructor: "普通物理实验教学组", semester: "25-26 第1学期", grade: "", description: "" },
+        { name: "近代物理", instructor: "高原宁", semester: "更早", grade: "", description: "" },
+        { name: "光学", instructor: "李焱", semester: "更早", grade: "", description: "" }
+      ]
     }
   },
 

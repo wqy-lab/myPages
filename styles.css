@@ -646,35 +646,80 @@ body {
 .dept-courses {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-.course-col-item {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-  font-size: 0.95rem;
-  color: var(--text-primary);
-  transition: color 0.3s ease;
-}
-
-.course-col-item:hover {
-  color: var(--accent);
-}
-
-.course-col-item.empty {
+.course-col-empty {
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  padding: 1rem;
+  text-align: center;
   font-style: italic;
 }
 
-.course-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent);
-  border-radius: 50%;
-  flex-shrink: 0;
-  box-shadow: var(--glow);
+/* ===== 课程卡片（原有样式） ===== */
+.course-item {
+  position: relative;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  transition: all 0.4s ease;
+}
+
+.course-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--accent), var(--accent-secondary));
+  transform: scaleY(0);
+  transition: transform 0.4s ease;
+}
+
+.course-item:hover {
+  border-color: rgba(0, 240, 255, 0.3);
+  transform: translateX(5px);
+  box-shadow: -5px 0 20px rgba(0, 240, 255, 0.08);
+}
+
+.course-item:hover::before {
+  transform: scaleY(1);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.course-name {
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+
+.course-grade {
+  padding: 0.2rem 0.6rem;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  color: var(--accent);
+  font-size: 0.75rem;
+}
+
+.course-meta {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.course-description {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* ===== 项目 ===== */

@@ -111,19 +111,6 @@ function showSection(name, data) {
       });
     });
   }
-
-  // 绑定课程 tab 切换
-  if (name === 'courses') {
-    contentWrapper.querySelectorAll('.course-tab').forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabName = tab.dataset.tab;
-        contentWrapper.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
-        contentWrapper.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
-        tab.classList.add('active');
-        contentWrapper.getElementById('panel-' + tabName).classList.add('active');
-      });
-    });
-  }
 }
 
 function hideSection() {
@@ -200,27 +187,34 @@ function renderBlog(posts) {
 
 function renderCourses(data) {
   // data: { now: {cs: [], phys: []}, history: {cs: [], phys: []} }
+  // each course: {name, instructor, semester, grade, description}
   if (!data) return '<p style="color:var(--text-secondary)">暂无内容</p>';
 
-  const tabNow = 'now', tabHist = 'history';
   const tabNames = { now: '现在课程', history: '历史课程' };
 
-  function renderColumn(courses) {
-    if (!courses || courses.length === 0) {
-      return '<div class="course-col-item empty">暂无课程</div>';
-    }
-    return courses.map(name => `
-      <div class="course-col-item">
-        <span class="course-dot"></span>
-        ${escapeHtml(name)}
+  function renderCard(course) {
+    if (!course) return '';
+    return `
+      <div class="course-item">
+        <div class="course-header">
+          <span class="course-name">${escapeHtml(course.name)}</span>
+          ${course.grade ? `<span class="course-grade">${escapeHtml(course.grade)}</span>` : ''}
+        </div>
+        <div class="course-meta">${escapeHtml(course.instructor || '')} · ${escapeHtml(course.semester || '')}</div>
+        ${course.description ? `<p class="course-description">${escapeHtml(course.description)}</p>` : ''}
       </div>
-    `).join('');
+    `;
   }
 
-  const nowCsHtml = renderColumn(data.now && data.now.cs);
-  const nowPhysHtml = renderColumn(data.now && data.now.phys);
-  const histCsHtml = renderColumn(data.history && data.history.cs);
-  const histPhysHtml = renderColumn(data.history && data.history.phys);
+  function renderCol(courses) {
+    if (!courses || courses.length === 0) return '<div class="course-col-empty">暂无课程</div>';
+    return courses.map(c => renderCard(c)).join('');
+  }
+
+  const nowCsHtml = renderCol(data.now && data.now.cs);
+  const nowPhysHtml = renderCol(data.now && data.now.phys);
+  const histCsHtml = renderCol(data.history && data.history.cs);
+  const histPhysHtml = renderCol(data.history && data.history.phys);
 
   return `
     <div class="section-header">
@@ -229,8 +223,8 @@ function renderCourses(data) {
     </div>
 
     <div class="course-tabs">
-      <button class="course-tab active" data-tab="${tabNow}">${tabNames[tabNow]}</button>
-      <button class="course-tab" data-tab="${tabHist}">${tabNames[tabHist]}</button>
+      <button class="course-tab active" data-tab="now" onclick="switchCourseTab('now', this)">${tabNames.now}</button>
+      <button class="course-tab" data-tab="history" onclick="switchCourseTab('history', this)">${tabNames.history}</button>
     </div>
 
     <div class="course-panels">
@@ -260,6 +254,13 @@ function renderCourses(data) {
       </div>
     </div>
   `;
+}
+
+function switchCourseTab(tabName, btn) {
+  document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + tabName).classList.add('active');
 }
 
 function renderProjects(items) {
