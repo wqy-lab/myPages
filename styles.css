@@ -244,8 +244,7 @@ body {
   position: fixed;
   inset: 0;
   z-index: 5;
-  background: rgba(5, 5, 8, 0.95);
-  backdrop-filter: blur(20px);
+  background: transparent;
   opacity: 0;
   transform: translateY(50px) scale(0.98);
   pointer-events: none;
@@ -314,6 +313,9 @@ body {
   max-width: 900px;
   margin: 0 auto;
   padding: 4rem 3rem;
+  background: rgba(10, 10, 16, 0.85);
+  backdrop-filter: blur(20px);
+  min-height: 100vh;
 }
 
 /* ===== 内容区块 ===== */
