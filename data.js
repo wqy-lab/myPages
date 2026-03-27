@@ -4,72 +4,34 @@
 
 const DATA = {
   profile: {
-    name: "林启明",
-    title: "计算机科学 · 研究生",
+    name: "王千一",
+    title: "物理学院 · 本科生",
     avatar: "",
-    bio: "北京邮电大学计算机科学与技术专业研究生，主要研究方向为机器学习与计算机视觉。热爱探索前沿技术，喜欢将算法应用于实际问题。目前正在研究基于深度学习的图像生成模型。",
-    interests: ["深度学习", "计算机视觉", "图像生成", "Python", "开源贡献"],
+    bio: "北京大学物理学院本科生，主要研究方向为量子计算与人工智能。热爱探索前沿技术，喜欢将算法应用于实际问题。",
+    interests: ["人工智能", "Python", "开源贡献"],
     location: "北京"
   },
 
   blog: [
     {
       id: 1,
-      title: "从零理解 Transformer 架构",
+      title: "Vibe Coding实践",
       date: "2026-03-20",
-      summary: "最近重新系统地学习了 Transformer 的原论文，有些之前忽略的细节这次有了更深的理解。",
-      content: "Self-Attention 机制的核心是计算序列中每个位置与其他位置的关联程度。\n\n通过 Q、K、V 三个矩阵的线性变换，我们可以学习到不同位置之间的依赖关系。\n\n多头注意力机制允许模型在不同的子空间学习关注不同的信息，这对于捕捉多样化的模式非常重要。\n\n残差连接和 Layer Normalization 使得深层网络的训练更加稳定。"
-    },
-    {
-      id: 2,
-      title: "我的第一个 Kaggle 比赛总结",
-      date: "2026-03-15",
-      summary: "参加了一次图像分类比赛，最终排名在前 10%，记录一下比赛中的经验教训。",
-      content: "这次比赛我尝试了多种数据增强方法，包括随机裁剪、翻转、色彩抖动等。\n\n模型方面使用了预训练的 ResNet50 作为 backbone，配合轻微的微调取得了不错的效果。\n\n最大的收获是要多看别人的方案，有时候灵感和思路就在一瞬间。"
-    },
-    {
-      id: 3,
-      title: "为什么我喜欢用 Linux 桌面",
-      date: "2026-02-28",
-      summary: "从 Windows 切换到 Linux 已经两年了，聊聊我的使用体验和感受。",
-      content: "最开始是因为需要用深度学习，Linux 对 GPU 的支持更好。后来发现命令行 + 脚本的组合让很多重复工作变得简单。\n\n最吸引我的是高度可定制性，从窗口管理器到状态栏，都可以按照自己的喜好来配置。\n\n当然，游戏体验确实不如 Windows，这是实话。"
+      summary: "利用Vibe Coding平台进行代码编写和调试的实践经验。",
+      content: "在这篇文章中，我分享了我在Vibe Coding平台上的实践经验。Claude Code是一个命令行AI工具，提供了丰富的功能和工具，帮助开发者更高效地进行编程。在使用过程中，我发现它的界面简洁易用，支持多种编程语言，并且具有强大的调试功能，可以快速定位和解决代码中的问题。通过这次实践，我不仅提升了自己的编程能力，还学会了如何更好地利用在线工具来提高工作效率。"
     }
   ],
 
-  courses: [
-    {
-      id: 1,
-      name: "机器学习",
-      instructor: "李明华 教授",
-      semester: "2024 秋季",
-      grade: "A",
-      description: "系统学习了主流的机器学习算法，包括 SVM、决策树、随机森林、神经网络等。期末项目实现了手写数字识别系统。"
+  courses: {
+    now: {
+      cs: [],
+      phys: ["实验物理中的统计方法", "数学物理方法（下）", "热学", "理论力学", "理论物理基础II"]
     },
-    {
-      id: 2,
-      name: "深度学习",
-      instructor: "王芳 教授",
-      semester: "2025 春季",
-      grade: "A",
-      description: "深入学习了 CNN、RNN、LSTM、Transformer 等深度学习模型。课程项目是用 PyTorch 实现了一个文本生成模型。"
-    },
-    {
-      id: 3,
-      name: "计算机视觉",
-      instructor: "张伟 副教授",
-      semester: "2025 秋季",
-      grade: "A-",
-      description: "学习了图像处理的基础知识和经典算法，以及目标检测、语义分割等视觉任务的前沿方法。"
-    },
-    {
-      id: 4,
-      name: "数据结构与算法",
-      instructor: "刘强 教授",
-      semester: "2023 秋季",
-      grade: "A",
-      description: "掌握了常用数据结构和算法的设计思想，包括链表、树、图、以及各种排序和搜索算法。"
+    history: {
+      cs: ["计算概论A"],
+      phys: ["数学物理方法（上）", "理论物理基础I", "近代物理", "光学"]
     }
-  ],
+  },
 
   projects: [
     {
@@ -111,12 +73,12 @@ const DATA = {
   ],
 
   contact: {
-    email: "linqiming@bupt.edu.cn",
-    github: "https://github.com/linqiming",
-    linkedin: "https://linkedin.com/in/linqiming",
+    email: "wangqianyi@pku.edu.cn",
+    github: "https://github.com/wqy-lab",
+    linkedin: "",
     twitter: "",
     scholar: "",
-    location: "北京邮电大学",
+    location: "北京大学物理学院",
     available: true
   }
 };

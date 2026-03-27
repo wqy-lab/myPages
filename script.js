@@ -111,6 +111,19 @@ function showSection(name, data) {
       });
     });
   }
+
+  // 绑定课程 tab 切换
+  if (name === 'courses') {
+    contentWrapper.querySelectorAll('.course-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabName = tab.dataset.tab;
+        contentWrapper.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
+        contentWrapper.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        contentWrapper.getElementById('panel-' + tabName).classList.add('active');
+      });
+    });
+  }
 }
 
 function hideSection() {
@@ -185,26 +198,67 @@ function renderBlog(posts) {
   `;
 }
 
-function renderCourses(items) {
-  const itemsHtml = items && items.length
-    ? items.map(item => `
-      <div class="course-item">
-        <div class="course-header">
-          <span class="course-name">${escapeHtml(item.name)}</span>
-          ${item.grade ? `<span class="course-grade">${escapeHtml(item.grade)}</span>` : ''}
-        </div>
-        <div class="course-meta">${escapeHtml(item.instructor)} · ${escapeHtml(item.semester)}</div>
-        ${item.description ? `<p class="course-description">${escapeHtml(item.description)}</p>` : ''}
+function renderCourses(data) {
+  // data: { now: {cs: [], phys: []}, history: {cs: [], phys: []} }
+  if (!data) return '<p style="color:var(--text-secondary)">暂无内容</p>';
+
+  const tabNow = 'now', tabHist = 'history';
+  const tabNames = { now: '现在课程', history: '历史课程' };
+
+  function renderColumn(courses) {
+    if (!courses || courses.length === 0) {
+      return '<div class="course-col-item empty">暂无课程</div>';
+    }
+    return courses.map(name => `
+      <div class="course-col-item">
+        <span class="course-dot"></span>
+        ${escapeHtml(name)}
       </div>
-    `).join('')
-    : '<p style="color: var(--text-secondary)">暂无内容</p>';
+    `).join('');
+  }
+
+  const nowCsHtml = renderColumn(data.now && data.now.cs);
+  const nowPhysHtml = renderColumn(data.now && data.now.phys);
+  const histCsHtml = renderColumn(data.history && data.history.cs);
+  const histPhysHtml = renderColumn(data.history && data.history.phys);
 
   return `
     <div class="section-header">
       <span class="section-tag">03</span>
       <h2>课程</h2>
     </div>
-    <div class="timeline">${itemsHtml}</div>
+
+    <div class="course-tabs">
+      <button class="course-tab active" data-tab="${tabNow}">${tabNames[tabNow]}</button>
+      <button class="course-tab" data-tab="${tabHist}">${tabNames[tabHist]}</button>
+    </div>
+
+    <div class="course-panels">
+      <div class="course-panel active" id="panel-now">
+        <div class="course-dept-row">
+          <div class="course-dept-col">
+            <div class="dept-label">信科</div>
+            <div class="dept-courses">${nowCsHtml}</div>
+          </div>
+          <div class="course-dept-col">
+            <div class="dept-label">物院</div>
+            <div class="dept-courses">${nowPhysHtml}</div>
+          </div>
+        </div>
+      </div>
+      <div class="course-panel" id="panel-history">
+        <div class="course-dept-row">
+          <div class="course-dept-col">
+            <div class="dept-label">信科</div>
+            <div class="dept-courses">${histCsHtml}</div>
+          </div>
+          <div class="course-dept-col">
+            <div class="dept-label">物院</div>
+            <div class="dept-courses">${histPhysHtml}</div>
+          </div>
+        </div>
+      </div>
+    </div>
   `;
 }
 
