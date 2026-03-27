@@ -7,8 +7,8 @@ const DATA = {
     name: "王千一",
     title: "物理学院 · 本科生",
     avatar: "",
-    bio: "北京大学物理学院本科生，主要研究方向为量子计算与人工智能。热爱探索前沿技术，喜欢将算法应用于实际问题。",
-    interests: ["人工智能", "Python", "开源贡献"],
+    bio: "北京大学物理学院本科生，主要研究方向为 “未定义”。热爱探索，但还没想好探索什么。",
+    interests: ["人工智能", "理论物理", "代数"],
     location: "北京"
   },
 
@@ -53,44 +53,35 @@ const DATA = {
   projects: [
     {
       id: 1,
-      name: "基于 CLIP 的图像检索系统",
-      role: "项目负责人",
-      period: "2025.09 - 2025.12",
-      description: "利用 CLIP 模型的图文对齐能力，实现了一个支持自然语言查询的商品图像检索系统。用户可以用文本描述来搜索相似商品图片。",
-      tech: ["Python", "PyTorch", "CLIP", "FastAPI", "Redis"],
-      link: "https://github.com/linqiming/image-search"
+      name: "基于 MCTS 的Amazons棋程序",
+      role: "独立开发",
+      period: "2025.09 - 2026.01",
+      description: "实现了简单的蒙特卡洛模拟，使用了基本的启发式评估函数和剪枝策略，最终在Amazons棋平台上达到了中等水平。",
+      tech: ["C++", "MCTS", "Queen-King Move", "Searching"],
+      link: "https://github.com/wqy-lab/Amazons"
     },
     {
       id: 2,
-      name: "中文情感分析模型",
-      role: "核心开发",
-      period: "2025.06 - 2025.08",
-      description: "使用预训练中文 BERT 模型进行情感分析，针对评论数据进行微调，最终准确率达到 92%。部署为 RESTful API 服务。",
-      tech: ["Python", "BERT", "PyTorch", "Flask", "Docker"],
-      link: "https://github.com/linqiming/sentiment-analysis"
+      name: "魔兽世界大作业",
+      role: "独立开发",
+      period: "2026.03 - 2026.04",
+      description: "使用C++实现了基于面向对象程序设计的魔兽世界大作业，包含武士类、装备类、城市类、模拟类等，支持基本的战斗模拟和属性计算。",
+      tech: ["C++", "OOP"],
+      link: "https://github.com/wqy-lab/WarCraft"
     },
     {
       id: 3,
-      name: "个人博客系统",
-      role: "独立开发",
-      period: "2025.01 - 2025.03",
-      description: "用 Next.js 和 Markdown 开发的个人博客，支持 Markdown 写作、标签分类、搜索功能。采用静态生成，访问速度快。",
-      tech: ["Next.js", "TypeScript", "Markdown", "Vercel"],
-      link: ""
+      name: "个人教学网系统",
+      role: "独立开发(vibe coding)",
+      period: "2026.03 - 2026.03",
+      description: "利用Claude Code完成了简单的课程管理、作业提交和日程管理。",
+      tech: ["HTML5", "CSS", "JavaScript"],
+      link: "https://github.com/wqy-lab/myWeb"
     },
-    {
-      id: 4,
-      name: "TCP/UDP 网络抓包工具",
-      role: "项目负责人",
-      period: "2024.06 - 2024.08",
-      description: "计算机网络课程项目，使用原始套接字实现了一个简易的网络抓包工具，支持 TCP 和 UDP 协议的解析。",
-      tech: ["C", "Socket", "WinPcap"],
-      link: "https://github.com/linqeming/network-sniffer"
-    }
   ],
 
   contact: {
-    email: "wangqianyi@pku.edu.cn",
+    email: "qianyiwang25@stu.pku.edu.cn",
     github: "https://github.com/wqy-lab",
     linkedin: "",
     twitter: "",
