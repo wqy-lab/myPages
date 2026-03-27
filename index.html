@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>个人主页</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <canvas id="bg-canvas"></canvas>
+  <div class="bg-grid"></div>
+  <div class="bg-gradient"></div>
+
+  <!-- 菜单页面 -->
+  <div class="menu-page" id="menu-page">
+    <div class="menu-center">
+      <div class="menu-decoration"></div>
+      <div class="menu-decoration"></div>
+      <div class="menu-decoration"></div>
+      <h1 class="menu-title" id="menu-name">Loading...</h1>
+      <p class="menu-subtitle" id="menu-title"></p>
+      <div class="menu-buttons">
+        <button class="menu-btn" data-section="about">
+          <span class="btn-num">01</span>
+          <span class="btn-text">关于</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="menu-btn" data-section="blog">
+          <span class="btn-num">02</span>
+          <span class="btn-text">想法</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="menu-btn" data-section="courses">
+          <span class="btn-num">03</span>
+          <span class="btn-text">课程</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="menu-btn" data-section="projects">
+          <span class="btn-num">04</span>
+          <span class="btn-text">项目</span>
+          <span class="btn-arrow">→</span>
+        </button>
+        <button class="menu-btn" data-section="contact">
+          <span class="btn-num">05</span>
+          <span class="btn-text">联系</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 内容页面 -->
+  <div class="content-page" id="content-page">
+    <nav class="top-nav">
+      <button class="back-btn" id="back-btn">
+        <span class="back-arrow">←</span>
+        <span>返回</span>
+      </button>
+      <span class="current-section" id="current-section"></span>
+    </nav>
+    <div class="content-wrapper" id="content-wrapper"></div>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

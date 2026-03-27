@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "基于 CLIP 的图像检索系统",
+    "role": "项目负责人",
+    "period": "2025.09 - 2025.12",
+    "description": "利用 CLIP 模型的图文对齐能力，实现了一个支持自然语言查询的商品图像检索系统。用户可以用文本描述来搜索相似商品图片。",
+    "tech": ["Python", "PyTorch", "CLIP", "FastAPI", "Redis"],
+    "link": "https://github.com/linqiming/image-search"
+  },
+  {
+    "id": 2,
+    "name": "中文情感分析模型",
+    "role": "核心开发",
+    "period": "2025.06 - 2025.08",
+    "description": "使用预训练中文 BERT 模型进行情感分析，针对评论数据进行微调，最终准确率达到 92%。部署为 RESTful API 服务。",
+    "tech": ["Python", "BERT", "PyTorch", "Flask", "Docker"],
+    "link": "https://github.com/linqiming/sentiment-analysis"
+  },
+  {
+    "id": 3,
+    "name": "个人博客系统",
+    "role": "独立开发",
+    "period": "2025.01 - 2025.03",
+    "description": "用 Next.js 和 Markdown 开发的个人博客，支持 Markdown 写作、标签分类、搜索功能。采用静态生成，访问速度快。",
+    "tech": ["Next.js", "TypeScript", "Markdown", "Vercel"],
+    "link": ""
+  },
+  {
+    "id": 4,
+    "name": "TCP/UDP 网络抓包工具",
+    "role": "项目负责人",
+    "period": "2024.06 - 2024.08",
+    "description": "计算机网络课程项目，使用原始套接字实现了一个简易的网络抓包工具，支持 TCP 和 UDP 协议的解析。",
+    "tech": ["C", "Socket", "WinPcap"],
+    "link": "https://github.com/linqeming/network-sniffer"
+  }
+]
