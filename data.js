@@ -26,34 +26,112 @@ const DATA = {
     {
       semester: "25-26 第2学期",
       cs: [
-        { name: "程序设计实习", instructor: "杨帅", grade: "", description: "" }
+        {
+          name: "程序设计实习",
+          instructor: "杨帅",
+          grade: "",
+          description: "",
+          review: null
+        }
       ],
       phys: [
-        { name: "实验物理中的统计方法", instructor: "杨振伟", grade: "", description: "" },
-        { name: "数学物理方法（下）", instructor: "高春媛", grade: "", description: "" },
-        { name: "热学", instructor: "刘玉鑫", grade: "", description: "" },
-        { name: "理论力学", instructor: "邵立晶", grade: "", description: "" },
-        { name: "理论物理基础II", instructor: "王垡", grade: "", description: "" }
+        {
+          name: "实验物理中的统计方法",
+          instructor: "杨振伟",
+          grade: "",
+          description: "",
+          review: { grading: 4, content: 5, teaching: 5, homework: 3, exam: 4 }
+        },
+        {
+          name: "数学物理方法（下）",
+          instructor: "高春媛",
+          grade: "",
+          description: "",
+          review: { grading: 5, content: 5, teaching: 5, homework: 4, exam: 4 }
+        },
+        {
+          name: "热学",
+          instructor: "刘玉鑫",
+          grade: "",
+          description: "",
+          review: { grading: 4, content: 4, teaching: 4, homework: 3, exam: 3 }
+        },
+        {
+          name: "理论力学",
+          instructor: "邵立晶",
+          grade: "",
+          description: "",
+          review: { grading: 4, content: 4, teaching: 5, homework: 3, exam: 4 }
+        },
+        {
+          name: "理论物理基础II",
+          instructor: "王垡",
+          grade: "",
+          description: "",
+          review: { grading: 4, content: 4, teaching: 4, homework: 3, exam: 4 }
+        }
       ]
     },
     {
       semester: "25-26 第1学期",
       cs: [
-        { name: "计算概论A", instructor: "王厚峰", grade: "A", description: "大作业难写qwq" }
+        {
+          name: "计算概论A",
+          instructor: "王厚峰",
+          grade: "A",
+          description: "大作业难写qwq",
+          review: { grading: 4, content: 3, teaching: 3, homework: 4, exam: 4 }
+        }
       ],
       phys: [
-        { name: "数学物理方法（上）", instructor: "高春媛", grade: "A+", description: "媛神！" },
-        { name: "理论物理基础I", instructor: "孟策", grade: "A+", description: "孟到哪里策哪里" },
-        { name: "普通物理实验（1）", instructor: "普通物理实验教学组", grade: "A+", description: "好实验课" },
-        { name: "普通物理实验（2）", instructor: "普通物理实验教学组", grade: "A", description: "实验报告难写" }
+        {
+          name: "数学物理方法（上）",
+          instructor: "高春媛",
+          grade: "A+",
+          description: "媛神！",
+          review: { grading: 5, content: 5, teaching: 5, homework: 4, exam: 4 }
+        },
+        {
+          name: "理论物理基础I",
+          instructor: "孟策",
+          grade: "A+",
+          description: "孟到哪里策哪里",
+          review: { grading: 5, content: 5, teaching: 5, homework: 3, exam: 4 }
+        },
+        {
+          name: "普通物理实验（1）",
+          instructor: "普通物理实验教学组",
+          grade: "A+",
+          description: "好实验课",
+          review: { grading: 5, content: 4, teaching: 3, homework: 3, exam: 2 }
+        },
+        {
+          name: "普通物理实验（2）",
+          instructor: "普通物理实验教学组",
+          grade: "A",
+          description: "实验报告难写",
+          review: { grading: 4, content: 4, teaching: 3, homework: 4, exam: 2 }
+        }
       ]
     },
     {
       semester: "24-25 第2学期",
       cs: [],
       phys: [
-        { name: "近代物理", instructor: "高原宁", grade: "A-", description: "高院😭" },
-        { name: "光学", instructor: "李焱", grade: "A+", description: "今晚没有习题课！" }
+        {
+          name: "近代物理",
+          instructor: "高原宁",
+          grade: "A-",
+          description: "高院😭",
+          review: { grading: 4, content: 5, teaching: 5, homework: 2, exam: 3 }
+        },
+        {
+          name: "光学",
+          instructor: "李焱",
+          grade: "A+",
+          description: "今晚没有习题课！",
+          review: { grading: 5, content: 5, teaching: 5, homework: 2, exam: 4 }
+        }
       ]
     }
   ],

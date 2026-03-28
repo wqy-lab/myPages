@@ -690,6 +690,133 @@ body {
   line-height: 1.6;
 }
 
+/* ===== 课程测评弹窗 ===== */
+.course-review-hint {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-top: 0.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.course-item:hover .course-review-hint {
+  opacity: 1;
+}
+
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-modal.active {
+  display: flex;
+}
+
+.review-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.review-panel {
+  position: relative;
+  background: linear-gradient(135deg, rgba(25, 25, 55, 0.98) 0%, rgba(20, 20, 45, 0.98) 100%);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+  padding: 2.5rem;
+  min-width: 400px;
+  max-width: 90vw;
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.2), inset 0 0 30px rgba(0, 240, 255, 0.03);
+  animation: fadeIn 0.25s ease;
+}
+
+.review-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.review-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.3rem;
+  padding-right: 2rem;
+}
+
+.review-instructor {
+  font-size: 0.9rem;
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.review-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.review-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 1rem;
+  background: rgba(10, 10, 25, 0.6);
+  border: 1px solid var(--border);
+}
+
+.review-label {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  width: 70px;
+  flex-shrink: 0;
+}
+
+.review-stars {
+  font-size: 1.1rem;
+  color: var(--accent);
+  letter-spacing: 2px;
+  flex: 1;
+}
+
+.review-score {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  width: 35px;
+  text-align: right;
+}
+
+.review-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  font-style: italic;
+}
+
 /* ===== 项目 ===== */
 .projects-grid {
   display: grid;

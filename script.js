@@ -189,16 +189,25 @@ function renderCourses(data) {
   // data: array of {semester, cs: [], phys: []}
   if (!data || !data.length) return '<p style="color:var(--text-secondary)">暂无内容</p>';
 
+  function renderStars(score) {
+    const full = Math.floor(score);
+    const half = score % 1 >= 0.5 ? 1 : 0;
+    const empty = 5 - full - half;
+    return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+  }
+
   function renderCard(course) {
     if (!course) return '';
+    const hasReview = course.review !== null && course.review !== undefined;
     return `
-      <div class="course-item">
+      <div class="course-item" ${hasReview ? `onclick="showCourseReview('${escapeHtml(course.name)}', '${escapeHtml(course.instructor)}', '${escapeHtml(course.grade || '')}', '${escapeHtml(course.description || '')}', ${course.review.grading}, ${course.review.content}, ${course.review.teaching}, ${course.review.homework}, ${course.review.exam})"` : ''}>
         <div class="course-header">
           <span class="course-name">${escapeHtml(course.name)}</span>
           ${course.grade ? `<span class="course-grade">${escapeHtml(course.grade)}</span>` : ''}
         </div>
         <div class="course-meta">${escapeHtml(course.instructor || '')}</div>
         ${course.description ? `<p class="course-description">${escapeHtml(course.description)}</p>` : ''}
+        ${hasReview ? '<div class="course-review-hint">点击查看测评 →</div>' : ''}
       </div>
     `;
   }
@@ -234,7 +243,52 @@ function renderCourses(data) {
       <h2>课程</h2>
     </div>
     <div class="semesters-container">${semestersHtml}</div>
+    <div class="review-modal" id="review-modal">
+      <div class="review-overlay" onclick="closeReview()"></div>
+      <div class="review-panel">
+        <button class="review-close" onclick="closeReview()">×</button>
+        <h3 class="review-title" id="review-title"></h3>
+        <p class="review-instructor" id="review-instructor"></p>
+        <div class="review-items" id="review-items"></div>
+        <p class="review-desc" id="review-desc"></p>
+      </div>
+    </div>
   `;
+}
+
+function showCourseReview(name, instructor, grade, desc, grading, content, teaching, homework, exam) {
+  const modal = document.getElementById('review-modal');
+  const reviewItems = [
+    { label: '给分', score: grading },
+    { label: '内容', score: content },
+    { label: '老师讲课', score: teaching },
+    { label: '作业量', score: homework },
+    { label: '考试', score: exam }
+  ];
+
+  document.getElementById('review-title').textContent = name;
+  document.getElementById('review-instructor').textContent = (instructor || '') + (grade ? ` · ${grade}` : '');
+  document.getElementById('review-desc').textContent = desc || '';
+
+  function renderStars(score) {
+    const full = Math.floor(score);
+    const empty = 5 - full;
+    return '★'.repeat(full) + '☆'.repeat(empty);
+  }
+
+  document.getElementById('review-items').innerHTML = reviewItems.map(item => `
+    <div class="review-item">
+      <span class="review-label">${item.label}</span>
+      <span class="review-stars">${renderStars(item.score)}</span>
+      <span class="review-score">${item.score}/5</span>
+    </div>
+  `).join('');
+
+  modal.classList.add('active');
+}
+
+function closeReview() {
+  document.getElementById('review-modal').classList.remove('active');
 }
 
 function renderProjects(items) {
