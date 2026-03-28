@@ -64,6 +64,18 @@
     <div class="content-wrapper" id="content-wrapper"></div>
   </div>
 
+  <!-- 课程测评弹窗（放 body 直接子元素，避免被父元素 transform 影响） -->
+  <div class="review-modal" id="review-modal">
+    <div class="review-overlay" onclick="closeReview()"></div>
+    <div class="review-panel">
+      <button class="review-close" onclick="closeReview()">×</button>
+      <h3 class="review-title" id="review-title"></h3>
+      <p class="review-instructor" id="review-instructor"></p>
+      <div class="review-items" id="review-items"></div>
+      <p class="review-desc" id="review-desc"></p>
+    </div>
+  </div>
+
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>

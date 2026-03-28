@@ -244,16 +244,6 @@ function renderCourses(data) {
       <h2>课程</h2>
     </div>
     <div class="semesters-container">${semestersHtml}</div>
-    <div class="review-modal" id="review-modal">
-      <div class="review-overlay" onclick="closeReview()"></div>
-      <div class="review-panel">
-        <button class="review-close" onclick="closeReview()">×</button>
-        <h3 class="review-title" id="review-title"></h3>
-        <p class="review-instructor" id="review-instructor"></p>
-        <div class="review-items" id="review-items"></div>
-        <p class="review-desc" id="review-desc"></p>
-      </div>
-    </div>
   `;
 }
 
