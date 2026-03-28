@@ -7,7 +7,7 @@ const DATA = {
     name: "王千一",
     title: "物理学院 · 本科生",
     avatar: "",
-    bio: "北京大学物理学院本科生，主要研究方向为 “未定义”。热爱探索，但还没想好探索什么。",
+    bio: "北京大学物理学院本科生，主要研究方向为 "未定义"。热爱探索，但还没想好探索什么。",
     interests: ["人工智能", "理论物理", "代数"],
     location: "北京"
   },
@@ -40,13 +40,7 @@ const DATA = {
           instructor: "杨振伟",
           grade: "",
           description: "",
-          review: {
-            grading: { score: 4, comment: "" },
-            content: { score: 5, comment: "统计方法很重要" },
-            teaching: { score: 5, comment: "讲得很清楚" },
-            homework: { score: 3, comment: "作业量适中" },
-            exam: { score: 4, comment: "有期中考" }
-          }
+          review: { grading: {score: 4, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 4, comment: ""} }
         },
         {
           name: "数学物理方法（下）",
@@ -86,7 +80,13 @@ const DATA = {
           instructor: "王厚峰",
           grade: "A",
           description: "大作业难写qwq",
-          review: { grading: {score: 4, comment: ""}, content: {score: 3, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 4, comment: ""} }
+          review: {
+            grading: { score: 4, comment: "" },
+            content: { score: 3, comment: "内容与作业考试基本脱钩，需要自学" },
+            teaching: { score: 5, comment: "讲得很好，每个知识点都有大量例子" },
+            homework: { score: 4, comment: "课后题有蓝题紫题，很吃OI基础" },
+            exam: { score: 3, comment: "期末较难，期中简单" }
+          }
         }
       ],
       phys: [
@@ -95,28 +95,52 @@ const DATA = {
           instructor: "高春媛",
           grade: "A+",
           description: "媛神！",
-          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 4, comment: ""} }
+          review: {
+            grading: { score: 5, comment: "媛神大捞特捞，期末很难也捞上90" },
+            content: { score: 5, comment: "复分析与常微分方程，教材很好（吴崇试）" },
+            teaching: { score: 5, comment: "细致证明每个重要结论，会补充Ahlfors内容" },
+            homework: { score: 3, comment: "留数定理部分很难，作业量不大" },
+            exam: { score: 4, comment: "期中简单，期末困难" }
+          }
         },
         {
           name: "理论物理基础I",
           instructor: "孟策",
           grade: "A+",
           description: "孟到哪里策哪里",
-          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 4, comment: ""} }
+          review: {
+            grading: { score: 5, comment: "给分好" },
+            content: { score: 5, comment: "理论力学+电动力学基础，节奏快笔记多" },
+            teaching: { score: 5, comment: "讲得清晰，指标计算和球谐函数部分讲得很好" },
+            homework: { score: 3, comment: "节奏快，作业量适中" },
+            exam: { score: 4, comment: "偏向计算，不需要很大思考量" }
+          }
         },
         {
           name: "普通物理实验（1）",
           instructor: "普通物理实验教学组",
           grade: "A+",
           description: "好实验课",
-          review: { grading: {score: 5, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 2, comment: ""} }
+          review: {
+            grading: { score: 5, comment: "给分好" },
+            content: { score: 4, comment: "自主实验+课堂实验，提高处理数据能力" },
+            teaching: { score: 3, comment: "有好助教" },
+            homework: { score: 3, comment: "有预习报告" },
+            exam: { score: 2, comment: "" }
+          }
         },
         {
           name: "普通物理实验（2）",
           instructor: "普通物理实验教学组",
           grade: "A",
           description: "实验报告难写",
-          review: { grading: {score: 4, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 2, comment: ""} }
+          review: {
+            grading: { score: 4, comment: "努力与回报正相关" },
+            content: { score: 4, comment: "时间紧张，Cupt部分力不从心" },
+            teaching: { score: 3, comment: "有好助教" },
+            homework: { score: 4, comment: "课堂实验要交实验报告" },
+            exam: { score: 2, comment: "" }
+          }
         }
       ]
     },
@@ -129,14 +153,26 @@ const DATA = {
           instructor: "高原宁",
           grade: "A-",
           description: "高院😭",
-          review: { grading: {score: 4, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 2, comment: ""}, exam: {score: 3, comment: ""} }
+          review: {
+            grading: { score: 4, comment: "给分不错" },
+            content: { score: 5, comment: "高院讲得很好" },
+            teaching: { score: 5, comment: "讲得很好" },
+            homework: { score: 2, comment: "作业量很少" },
+            exam: { score: 3, comment: "" }
+          }
         },
         {
           name: "光学",
           instructor: "李焱",
           grade: "A+",
           description: "今晚没有习题课！",
-          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 2, comment: ""}, exam: {score: 4, comment: ""} }
+          review: {
+            grading: { score: 5, comment: "给分好" },
+            content: { score: 5, comment: "光学内容" },
+            teaching: { score: 5, comment: "讲得很好，今晚没有习题课！" },
+            homework: { score: 2, comment: "作业量很少" },
+            exam: { score: 4, comment: "" }
+          }
         }
       ]
     }
@@ -169,7 +205,7 @@ const DATA = {
       description: "利用Claude Code完成了简单的课程管理、作业提交和日程管理。",
       tech: ["HTML5", "CSS", "JavaScript"],
       link: "https://github.com/wqy-lab/myWeb"
-    },
+    }
   ],
 
   contact: {
