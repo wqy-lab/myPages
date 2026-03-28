@@ -199,8 +199,9 @@ function renderCourses(data) {
   function renderCard(course) {
     if (!course) return '';
     const hasReview = course.review !== null && course.review !== undefined;
+    const reviewJson = hasReview ? encodeURIComponent(JSON.stringify(course.review)) : '';
     return `
-      <div class="course-item" ${hasReview ? `onclick="showCourseReview('${escapeHtml(course.name)}', '${escapeHtml(course.instructor)}', '${escapeHtml(course.grade || '')}', '${escapeHtml(course.description || '')}', ${course.review.grading}, ${course.review.content}, ${course.review.teaching}, ${course.review.homework}, ${course.review.exam})"` : ''}>
+      <div class="course-item" ${hasReview ? `onclick="showCourseReview('${escapeHtml(course.name)}', '${escapeHtml(course.instructor)}', '${escapeHtml(course.grade || '')}', '${escapeHtml(course.description || '')}', '${reviewJson}')"` : ''}>
         <div class="course-header">
           <span class="course-name">${escapeHtml(course.name)}</span>
           ${course.grade ? `<span class="course-grade">${escapeHtml(course.grade)}</span>` : ''}
@@ -256,14 +257,15 @@ function renderCourses(data) {
   `;
 }
 
-function showCourseReview(name, instructor, grade, desc, grading, content, teaching, homework, exam) {
+function showCourseReview(name, instructor, grade, desc, reviewEncoded) {
+  const r = JSON.parse(decodeURIComponent(reviewEncoded));
   const modal = document.getElementById('review-modal');
   const reviewItems = [
-    { label: '给分', score: grading },
-    { label: '内容', score: content },
-    { label: '老师讲课', score: teaching },
-    { label: '作业量', score: homework },
-    { label: '考试', score: exam }
+    { label: '给分', data: r.grading },
+    { label: '内容', data: r.content },
+    { label: '老师讲课', data: r.teaching },
+    { label: '作业量', data: r.homework },
+    { label: '考试', data: r.exam }
   ];
 
   document.getElementById('review-title').textContent = name;
@@ -279,8 +281,9 @@ function showCourseReview(name, instructor, grade, desc, grading, content, teach
   document.getElementById('review-items').innerHTML = reviewItems.map(item => `
     <div class="review-item">
       <span class="review-label">${item.label}</span>
-      <span class="review-stars">${renderStars(item.score)}</span>
-      <span class="review-score">${item.score}/5</span>
+      <span class="review-stars">${renderStars(item.data.score)}</span>
+      <span class="review-score">${item.data.score}/5</span>
+      ${item.data.comment ? `<span class="review-comment">${escapeHtml(item.data.comment)}</span>` : ''}
     </div>
   `).join('');
 

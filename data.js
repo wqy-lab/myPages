@@ -40,35 +40,41 @@ const DATA = {
           instructor: "杨振伟",
           grade: "",
           description: "",
-          review: { grading: 4, content: 5, teaching: 5, homework: 3, exam: 4 }
+          review: {
+            grading: { score: 4, comment: "" },
+            content: { score: 5, comment: "统计方法很重要" },
+            teaching: { score: 5, comment: "讲得很清楚" },
+            homework: { score: 3, comment: "作业量适中" },
+            exam: { score: 4, comment: "有期中考" }
+          }
         },
         {
           name: "数学物理方法（下）",
           instructor: "高春媛",
           grade: "",
           description: "",
-          review: { grading: 5, content: 5, teaching: 5, homework: 4, exam: 4 }
+          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 4, comment: ""} }
         },
         {
           name: "热学",
           instructor: "刘玉鑫",
           grade: "",
           description: "",
-          review: { grading: 4, content: 4, teaching: 4, homework: 3, exam: 3 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 4, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 3, comment: ""} }
         },
         {
           name: "理论力学",
           instructor: "邵立晶",
           grade: "",
           description: "",
-          review: { grading: 4, content: 4, teaching: 5, homework: 3, exam: 4 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 4, comment: ""} }
         },
         {
           name: "理论物理基础II",
           instructor: "王垡",
           grade: "",
           description: "",
-          review: { grading: 4, content: 4, teaching: 4, homework: 3, exam: 4 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 4, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 4, comment: ""} }
         }
       ]
     },
@@ -80,7 +86,7 @@ const DATA = {
           instructor: "王厚峰",
           grade: "A",
           description: "大作业难写qwq",
-          review: { grading: 4, content: 3, teaching: 3, homework: 4, exam: 4 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 3, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 4, comment: ""} }
         }
       ],
       phys: [
@@ -89,28 +95,28 @@ const DATA = {
           instructor: "高春媛",
           grade: "A+",
           description: "媛神！",
-          review: { grading: 5, content: 5, teaching: 5, homework: 4, exam: 4 }
+          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 4, comment: ""} }
         },
         {
           name: "理论物理基础I",
           instructor: "孟策",
           grade: "A+",
           description: "孟到哪里策哪里",
-          review: { grading: 5, content: 5, teaching: 5, homework: 3, exam: 4 }
+          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 4, comment: ""} }
         },
         {
           name: "普通物理实验（1）",
           instructor: "普通物理实验教学组",
           grade: "A+",
           description: "好实验课",
-          review: { grading: 5, content: 4, teaching: 3, homework: 3, exam: 2 }
+          review: { grading: {score: 5, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 3, comment: ""}, exam: {score: 2, comment: ""} }
         },
         {
           name: "普通物理实验（2）",
           instructor: "普通物理实验教学组",
           grade: "A",
           description: "实验报告难写",
-          review: { grading: 4, content: 4, teaching: 3, homework: 4, exam: 2 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 4, comment: ""}, teaching: {score: 3, comment: ""}, homework: {score: 4, comment: ""}, exam: {score: 2, comment: ""} }
         }
       ]
     },
@@ -123,14 +129,14 @@ const DATA = {
           instructor: "高原宁",
           grade: "A-",
           description: "高院😭",
-          review: { grading: 4, content: 5, teaching: 5, homework: 2, exam: 3 }
+          review: { grading: {score: 4, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 2, comment: ""}, exam: {score: 3, comment: ""} }
         },
         {
           name: "光学",
           instructor: "李焱",
           grade: "A+",
           description: "今晚没有习题课！",
-          review: { grading: 5, content: 5, teaching: 5, homework: 2, exam: 4 }
+          review: { grading: {score: 5, comment: ""}, content: {score: 5, comment: ""}, teaching: {score: 5, comment: ""}, homework: {score: 2, comment: ""}, exam: {score: 4, comment: ""} }
         }
       ]
     }
