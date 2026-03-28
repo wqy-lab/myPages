@@ -39,21 +39,21 @@ const DATA = {
     {
       semester: "25-26 第1学期",
       cs: [
-        { name: "计算概论A", instructor: "王厚峰", grade: "", description: "" }
+        { name: "计算概论A", instructor: "王厚峰", grade: "A", description: "大作业难写qwq" }
       ],
       phys: [
-        { name: "数学物理方法（上）", instructor: "高春媛", grade: "", description: "" },
-        { name: "理论物理基础I", instructor: "孟策", grade: "", description: "" },
-        { name: "普通物理实验（1）", instructor: "普通物理实验教学组", grade: "", description: "" },
-        { name: "普通物理实验（2）", instructor: "普通物理实验教学组", grade: "", description: "" }
+        { name: "数学物理方法（上）", instructor: "高春媛", grade: "A+", description: "媛神！" },
+        { name: "理论物理基础I", instructor: "孟策", grade: "A+", description: "孟到哪里策哪里" },
+        { name: "普通物理实验（1）", instructor: "普通物理实验教学组", grade: "A+", description: "好实验课" },
+        { name: "普通物理实验（2）", instructor: "普通物理实验教学组", grade: "A", description: "实验报告难写" }
       ]
     },
     {
       semester: "24-25 第2学期",
       cs: [],
       phys: [
-        { name: "近代物理", instructor: "高原宁", grade: "", description: "" },
-        { name: "光学", instructor: "李焱", grade: "", description: "" }
+        { name: "近代物理", instructor: "高原宁", grade: "A-", description: "高院😭" },
+        { name: "光学", instructor: "李焱", grade: "A+", description: "今晚没有习题课！" }
       ]
     }
   ],
