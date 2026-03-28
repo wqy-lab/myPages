@@ -186,11 +186,8 @@ function renderBlog(posts) {
 }
 
 function renderCourses(data) {
-  // data: { now: {cs: [], phys: []}, history: {cs: [], phys: []} }
-  // each course: {name, instructor, semester, grade, description}
-  if (!data) return '<p style="color:var(--text-secondary)">暂无内容</p>';
-
-  const tabNames = { now: '现在课程', history: '历史课程' };
+  // data: array of {semester, cs: [], phys: []}
+  if (!data || !data.length) return '<p style="color:var(--text-secondary)">暂无内容</p>';
 
   function renderCard(course) {
     if (!course) return '';
@@ -200,67 +197,44 @@ function renderCourses(data) {
           <span class="course-name">${escapeHtml(course.name)}</span>
           ${course.grade ? `<span class="course-grade">${escapeHtml(course.grade)}</span>` : ''}
         </div>
-        <div class="course-meta">${escapeHtml(course.instructor || '')} · ${escapeHtml(course.semester || '')}</div>
+        <div class="course-meta">${escapeHtml(course.instructor || '')}</div>
         ${course.description ? `<p class="course-description">${escapeHtml(course.description)}</p>` : ''}
       </div>
     `;
   }
 
-  function renderCol(courses) {
-    if (!courses || courses.length === 0) return '<div class="course-col-empty">暂无课程</div>';
-    return courses.map(c => renderCard(c)).join('');
-  }
+  const semestersHtml = data.map(sem => {
+    const csItems = sem.cs && sem.cs.length
+      ? sem.cs.map(c => renderCard(c)).join('')
+      : '<div class="course-col-empty">暂无</div>';
+    const physItems = sem.phys && sem.phys.length
+      ? sem.phys.map(c => renderCard(c)).join('')
+      : '<div class="course-col-empty">暂无</div>';
 
-  const nowCsHtml = renderCol(data.now && data.now.cs);
-  const nowPhysHtml = renderCol(data.now && data.now.phys);
-  const histCsHtml = renderCol(data.history && data.history.cs);
-  const histPhysHtml = renderCol(data.history && data.history.phys);
+    return `
+      <div class="semester-block">
+        <div class="semester-label">${escapeHtml(sem.semester)}</div>
+        <div class="course-dept-row">
+          <div class="course-dept-col">
+            <div class="dept-label">信科</div>
+            <div class="dept-courses">${csItems}</div>
+          </div>
+          <div class="course-dept-col">
+            <div class="dept-label">物院</div>
+            <div class="dept-courses">${physItems}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
 
   return `
     <div class="section-header">
       <span class="section-tag">03</span>
       <h2>课程</h2>
     </div>
-
-    <div class="course-tabs">
-      <button class="course-tab active" data-tab="now" onclick="switchCourseTab('now', this)">${tabNames.now}</button>
-      <button class="course-tab" data-tab="history" onclick="switchCourseTab('history', this)">${tabNames.history}</button>
-    </div>
-
-    <div class="course-panels">
-      <div class="course-panel active" id="panel-now">
-        <div class="course-dept-row">
-          <div class="course-dept-col">
-            <div class="dept-label">信科</div>
-            <div class="dept-courses">${nowCsHtml}</div>
-          </div>
-          <div class="course-dept-col">
-            <div class="dept-label">物院</div>
-            <div class="dept-courses">${nowPhysHtml}</div>
-          </div>
-        </div>
-      </div>
-      <div class="course-panel" id="panel-history">
-        <div class="course-dept-row">
-          <div class="course-dept-col">
-            <div class="dept-label">信科</div>
-            <div class="dept-courses">${histCsHtml}</div>
-          </div>
-          <div class="course-dept-col">
-            <div class="dept-label">物院</div>
-            <div class="dept-courses">${histPhysHtml}</div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="semesters-container">${semestersHtml}</div>
   `;
-}
-
-function switchCourseTab(tabName, btn) {
-  document.querySelectorAll('.course-tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.course-panel').forEach(p => p.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById('panel-' + tabName).classList.add('active');
 }
 
 function renderProjects(items) {
